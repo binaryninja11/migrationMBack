@@ -20,7 +20,7 @@ router = APIRouter(prefix='/test', tags=["test"])
 # ✅ Get Variant Data
 @router.get("/variants/{versionId}")
 async def get_files(versionId: int):
-    if versionId not in range(1, 6):  # Ensuring range is 1-5
+    if versionId not in range(1, 8):  # Ensuring range is 1-7
         raise HTTPException(status_code=404, detail="version is not found")
 
     try:
@@ -62,7 +62,7 @@ async def get_answer(
     versionId: int,
     db: Session = Depends(get_db)
 ):
-    if versionId not in range(1, 6):  # Ensure valid range (1-5)
+    if versionId not in range(1, 7):  # Ensure valid range (1-7)
         raise HTTPException(status_code=404, detail="version is not found")
 
     try:
