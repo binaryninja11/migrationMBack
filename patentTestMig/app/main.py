@@ -43,11 +43,5 @@ app.include_router(router.router)
 async def root():
     return {"message": "Welcome to the FastAPI Backend! (/docs for Swagger UI)"}
 
-# if __name__ == '__main__':
-#     uvicorn.run("main:app", reload=True)
 
-if __name__ == '__main__':
-
-    uvicorn.run("main:apppe", reload=True, host="0.0.0.0")
-    # uvicorn.run("main:app", reload=True)
 
