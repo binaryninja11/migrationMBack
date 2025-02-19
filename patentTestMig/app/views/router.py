@@ -62,7 +62,7 @@ async def get_answer(
     versionId: int,
     db: Session = Depends(get_db)
 ):
-    if versionId not in range(1, 7):  # Ensure valid range (1-7)
+    if versionId not in range(1, 8):  # Ensure valid range (1-7)
         raise HTTPException(status_code=404, detail="version is not found")
 
     try:
