@@ -24,7 +24,8 @@ origins = [
     "https://migrationv-v1-0.onrender.com",  # server 
     "https://migrationagent.netlify.app",
     "https://migrationag.netlify.app",
-    "https://migrationuz.netlify.app"
+    "https://migrationuz.netlify.app",
+    "https://test.xorijdaish.uz"
 ]
 # http://10.10.3.71:8000
 app.add_middleware(
