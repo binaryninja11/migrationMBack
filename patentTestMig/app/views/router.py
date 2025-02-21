@@ -65,13 +65,13 @@ async def get_answer(
     if versionId not in range(1, 8):  # Ensure valid range (1-7)
         raise HTTPException(status_code=404, detail="version is not found")
 
-    try:
-        date_obj = datetime.now()  # Current timestamp
-    except ValueError:
-        raise HTTPException(status_code=400, detail="Invalid date format. Use DD.MM.YYYY HH:MM:SS")
+   # try:
+  #      date_obj = datetime.now()  # Current timestamp
+   # except ValueError:
+    #    raise HTTPException(status_code=400, detail="Invalid date format. Use DD.MM.YYYY HH:MM:SS")
 
     try:
-        crud.create_counter(db, date_obj)
+       # crud.create_counter(db, date_obj)
         return schema.AnswerResponse(answers=variants.answers[versionId - 1])
     except Exception as e:
         raise HTTPException(status_code=400, detail=f"An unexpected error occurred: {str(e)}")
