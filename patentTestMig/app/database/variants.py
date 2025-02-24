@@ -685,8 +685,8 @@ variant5 = {
             {
                 "id":14,
                 "task_name": "Задание 14",
-                "body": "Укажите флаг Российской Федерации.",
-                "answers": ["img41.jpg", "img42.jpg", "img43.jpg"]
+                "body": "Укажите Герб Российской Федерации.",
+                "answers": ["img51.jpg", "img52.jpg", "img53.jpg"]
             }
         ],
         schema.SectionName.low: [
