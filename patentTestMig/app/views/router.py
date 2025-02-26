@@ -33,7 +33,7 @@ async def get_files(versionId: int):
 def get_count(db: Session = Depends(get_db)):
     try:
         count_value = crud.get_counter(db)
-        return schema.Counter(count=count_value)  # Wrap response
+        return schema.Counter(count=count_value)
     except SQLAlchemyError as e:
         raise HTTPException(status_code=500, detail=f"Database error: {str(e)}")
     except Exception:
@@ -65,13 +65,10 @@ async def get_answer(
     if versionId not in range(1, 8):  # Ensure valid range (1-7)
         raise HTTPException(status_code=404, detail="version is not found")
 
-    try:
-        date_obj = datetime.now()  # Current timestamp
-    except ValueError:
-        raise HTTPException(status_code=400, detail="Invalid date format. Use DD.MM.YYYY HH:MM:SS")
+    date_obj = datetime.now()  # Current timestamp
 
     try:
         crud.create_counter(db, date_obj)
         return schema.AnswerResponse(answers=variants.answers[versionId - 1])
     except Exception as e:
-        raise HTTPException(status_code=400, detail=f"An unexpected error occurred: {str(e)}")
+        raise HTTPException(status_code=500, detail=f"An unexpected error occurred: {str(e)}")
